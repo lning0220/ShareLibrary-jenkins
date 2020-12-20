@@ -1,6 +1,7 @@
 #!groovy
 @Library('jenlinslib') _
 def tools = new org.devops.tools()
+String workspace="/opt/jenkins/workspace"
 pipeline{
     agent{
         node{ 
