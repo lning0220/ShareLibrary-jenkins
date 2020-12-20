@@ -31,5 +31,13 @@ pipeline{
          }
       }
     }
+    stage("Nodebuild"){
+      steps{
+        script{
+           nodeHome = tool "NODE"
+           sh "${nodeHome}/bin/node ${buildShell}"
+         }
+      }
+    }
   }
 }
