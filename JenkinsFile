@@ -24,7 +24,8 @@ pipeline{
             steps{
                 timeout(time:5,unit:'MINUTES'){
                     script{
-                        println("${GetCode}")
+                        //println("${GetCode}")
+                        tools.PrintMes("获取代码!",'green')
                     }
                 }
             }
@@ -33,8 +34,8 @@ pipeline{
             steps{
                 timeout(time:5,unit:'MINUTES'){
                     script{
-                        println("${Build}")
-                        tools.PrintMes("this is lib!",'green')
+                        //qprintln("${Build}")
+                        tools.PrintMes("应用打包!",'green')
                     }
                 }
             }
@@ -43,7 +44,8 @@ pipeline{
             steps{
                 timeout(time:5,unit:'MINUTES'){
                     script{
-                        println("${CodeScan}")
+                        //println("${CodeScan}")
+                        tools.PrintMes("代码扫描!",'green')
                         mvnHome = tool "m2"
                         println(mvnHome)
                         sh "${mvnHome}/bin/mvn --version"
@@ -55,7 +57,7 @@ pipeline{
             steps{
                 timeout(time:5,unit:'MINUTES'){
                     script{
-                        println("${Declarative}")
+                        tools.PrintMes("声明发布!",'green')
                     }
                 }
             }
