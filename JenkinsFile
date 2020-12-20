@@ -34,7 +34,7 @@ pipeline{
                 timeout(time:5,unit:'MINUTES'){
                     script{
                         println("${Build}")
-                        tools.PrintMes("this is lib!")
+                        tools.PrintMes("this is lib!",'green')
                     }
                 }
             }
