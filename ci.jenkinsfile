@@ -1,3 +1,4 @@
+
 #!groovy
 String buildShell ="${env.buildShell}"
 pipeline{
@@ -14,7 +15,7 @@ pipeline{
     stage("antbuild"){
       steps{
         script{
-           antHome tool "ANT"
+           antHome = tool "ANT"
            sh "${antHome}/bin/ant ${buildShell}"
          }
       }
