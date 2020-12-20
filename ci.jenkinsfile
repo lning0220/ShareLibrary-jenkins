@@ -5,7 +5,7 @@ pipeline{
       steps{
         script{
           mvnHome = tool "m2"
-          sh "${mvnHome/bin/mvn -v}"
+          sh "${mvnHome}/bin/mvn -v"
           }
       }
     }
