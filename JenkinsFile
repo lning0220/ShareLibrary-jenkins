@@ -1,0 +1,62 @@
+@Library('jenlinslib')
+def tools = new org.devops.tools()
+pipeline{
+    agent{
+        node{ 
+            label 'build01'
+        }
+    }
+   environment{
+        cc='clang'
+    }
+    options {
+        timeout(time:1,unit:'HOURS')
+    }
+    parameters {
+        string(name: 'DEPLOY_ENV', defaultValue:'staging',description:'')
+    }
+    stages{
+        
+        stage('GetCode'){
+            when { environment name:'DEPLOY_ENV',value:'staging'}
+            steps{
+                timeout(time:5,unit:'MINUTES'){
+                    script{
+                        println("${GetCode}")
+                    }
+                }
+            }
+        }
+        stage('Build'){
+            steps{
+                timeout(time:5,unit:'MINUTES'){
+                    script{
+                        println("${Build}")
+                        tools.PrintMes("this is lib!")
+                    }
+                }
+            }
+        }
+        stage('CodeScan'){
+            steps{
+                timeout(time:5,unit:'MINUTES'){
+                    script{
+                        println("${CodeScan}")
+                        mvnHome = tool "m2"
+                        println(mvnHome)
+                        sh "${mvnHome}/bin/mvn --version"
+                    }
+                }
+            }
+        }
+        stage('Declarative: Post Actions'){
+            steps{
+                timeout(time:5,unit:'MINUTES'){
+                    script{
+                        println("${Build}")
+                    }
+                }
+            }
+        }
+    }
+}
