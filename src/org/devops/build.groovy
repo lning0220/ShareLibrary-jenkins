@@ -1,5 +1,5 @@
 package org.devops
-def tools = new devops.tools()
+def tools = new tools()
 
 //构建类型
 def Build(buildType, buildShell) {
