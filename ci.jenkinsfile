@@ -3,6 +3,7 @@
 
 def build = new org.devops.build()
 def tools = new org.devops.tools()
+
 String buildTye="${env.buildType}"
 
 String buildShell ="${env.buildShell}"
@@ -13,8 +14,7 @@ pipeline{
     stage("build"){
       steps{
         script{
-            tools.PrintMes(build.Build(buildType,buildShell),'green')
-            
+            build.Build(buildType,buildShell)
           }
       }
     }
