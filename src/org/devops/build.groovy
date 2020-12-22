@@ -1,12 +1,11 @@
 package org.devops
-def tools = new /tools()
 
 //构建类型
 def Build(buildType, buildShell) {
   def buildTools = ['mvn':'m2', 'ant':'ANT', 'gradle':'GRADLE', 'npm':'NPM']
 
-  //println("当前选择的构建类型为 ${buildType}")
-  tools.PrintMes("当前选择的构建类型为 ${buildType}", 'green')
+  println("当前选择的构建类型为 ${buildType}")
+  //tools.PrintMes("当前选择的构建类型为 ${buildType}", 'green')
   buildHome = tool buildTools[buildType]
 
   if ("${buildType}" == 'npm') {
