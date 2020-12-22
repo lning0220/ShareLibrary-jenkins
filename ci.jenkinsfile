@@ -2,7 +2,6 @@
 @Library('jenkinslib@main') _
 
 def build = new org.devops.build()
-def tools = new devops.tools()
 
 String buildTye="${env.buildType}"
 
