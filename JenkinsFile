@@ -1,6 +1,7 @@
 #!groovy
 @Library('jenkinslib') _
 def tools = new org.devops.tools()
+def gitlab= new org.devops.gitlab()
 String workspace = '/opt/jenkins/workspace'
 pipeline {
     agent {
